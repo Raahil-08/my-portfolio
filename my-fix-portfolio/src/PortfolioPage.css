@@ -1,0 +1,79 @@
+/* PortfolioPage.css */
+
+.portfolio-wrapper {
+  scroll-behavior: smooth;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-section {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+}
+
+.hero-heading {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-subtext {
+  font-size: 1.25rem;
+  opacity: 0.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.latest-work-section {
+  background: #0e0e0e;
+  padding: 0;
+}
+
+.latest-work-heading-sticky {
+  position: sticky;
+  top: 0;
+  background-color: #0e0e0e;
+  z-index: 10;
+  padding: 2rem 0;
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.sticky-scroll-stack {
+  position:sticky;
+  height: 300vh;
+}
+
+.project-sticky-tile {
+  position: sticky;
+  top: 18.2rem; /* stick just below heading */
+  width: 60%;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+  border: 1px solid #333;
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  padding: 3rem;
+  margin-bottom: 100vh; /* create scroll space to reveal next tile */
+  transition: all 0.6s ease;
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;  
+}
+
+.project-description {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.5;
+}
