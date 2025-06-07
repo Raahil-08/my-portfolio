@@ -11,23 +11,10 @@ const projects = [
     description: 'This is a short description of project 2.',
   },
   {
-    title: 'Project 2',
-    description: 'This is a short description of project 2.',
-  },
-  {
     title: 'Project 3',
     description: 'This is a short description of project 3.',
   },
 ]
-
-function ProjectTile({ title, description }) {
-  return (
-    <div className="project-sticky-tile">
-      <h3 className="project-title">{title}</h3>
-      <p className="project-description">{description}</p>
-    </div>
-  )
-}
 
 export default function PortfolioPage() {
   return (
@@ -35,14 +22,14 @@ export default function PortfolioPage() {
       <section className="hero-section">
         <h1 className="hero-heading">Hi, I'm a College Student in Ahmedabad</h1>
         <p className="hero-subtext">
-          I create engaging digital experiences through clean code and bold design.
+          I'm building projects and a portfolio that creates lasting impressions.
         </p>
       </section>
 
       <section className="contribution-section">
         <h2 className="section-title">My Contributions</h2>
         <p className="section-description">
-          I've participated in national hackathons, contributed to open-source projects, and developed tools that solve real-world problems.
+          Participated in hackathons, contributed to open source, and developed apps that solve real problems.
         </p>
       </section>
 
@@ -50,9 +37,14 @@ export default function PortfolioPage() {
         <div className="latest-work-heading-sticky">
           <h2 className="section-title">Latest Work</h2>
         </div>
-        <div className="sticky-scroll-stack">
+        <div className="stacked-scroll-wrapper">
           {projects.map((project, index) => (
-            <ProjectTile key={index} title={project.title} description={project.description} />
+            <div className="scroll-frame" key={index}>
+              <div className="project-sticky-tile">
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
