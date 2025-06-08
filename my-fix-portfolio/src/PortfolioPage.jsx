@@ -1,59 +1,93 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './PortfolioPage.css'
 
 const projects = [
-  {
-    title: 'Project 1',
-    description: 'This is a short description of project 1.',
-  },
-  {
-    title: 'Project 2',
-    description: 'This is a short description of project 2.',
-  },
-  {
-    title: 'Project 3',
-    description: 'This is a short description of project 3.',
-  },
+  { title: 'Project 1', description: 'This is a short description of project 1.' },
+  { title: 'Project 2', description: 'This is a short description of project 2.' },
+  { title: 'Project 3', description: 'This is a short description of project 3.' },
 ]
 
+function useOnScreen(ref) {
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [ref])
+  return visible
+}
+
 export default function PortfolioPage() {
+  const heroRef = useRef(null)
+  const contribRef = useRef(null)
+  const latestRef = useRef(null)
+  const contactRef = useRef(null)
+
+  const showHero = useOnScreen(heroRef)
+  const showContrib = useOnScreen(contribRef)
+  const showLatest = useOnScreen(latestRef)
+  const showContact = useOnScreen(contactRef)
+
   return (
     <div className="portfolio-wrapper">
-      <section className="hero-section">
-        <h1 className="hero-heading">Hi, I'm a College Student in Ahmedabad</h1>
-        <p className="hero-subtext">
-          I'm building projects and a portfolio that creates lasting impressions.
-        </p>
-      </section>
+      <div className={`section-container ${showHero ? 'active' : ''}`} ref={heroRef}>
+        <div className="section-highlight" />
+        <section className="hero-section">
+          <p className="hero-subtext">
+          <h1 className="hero-heading">Hi, I'm a College Student in Ahmedabad</h1>
+            I create engaging digital experiences through clean code and bold design. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, nemo recusandae cum eum atque harum ex enim aliquam culpa pariatur iste molestias excepturi! Possimus, minima nisi iusto eos voluptatem voluptate?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga id quisquam placeat obcaecati dolores quibusdam nostrum quo. Explicabo nobis cumque eligendi, doloribus velit neque fuga modi, aspernatur numquam eius totam!
+            
+          </p>
+        </section>
+      </div>
 
-      <section className="contribution-section">
-        <h2 className="section-title">My Contributions</h2>
-        <p className="section-description">
-          Participated in hackathons, contributed to open source, and developed apps that solve real problems.
-        </p>
-      </section>
+      <div className={`section-container ${showContrib ? 'active' : ''}`} ref={contribRef}>
+        <div className="section-highlight" />
+        <section className="contribution-section">
+          <p className="section-description">
+          <h2 className="section-title">My Contributions</h2>
+            I've participated in national hackathons, contributed to open-source projects, and
+            developed tools that solve real-world problems.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, delectus magni ipsam incidunt nostrum nihil dolorem, fugiat veritatis hic doloremque, nobis eligendi sit? Voluptatum dolore porro inventore labore quasi commodi?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis animi recusandae quia voluptates a asperiores, debitis tempora adipisci voluptatem ullam voluptas accusantium, iusto eligendi aspernatur nam labore, exercitationem dolorum sunt!
+          </p>
+        </section>
+      </div>
 
-      <section className="latest-work-section">
-        <div className="latest-work-heading-sticky">
-          <h2 className="section-title">Latest Work</h2>
-        </div>
-        <div className="stacked-scroll-wrapper">
-          {projects.map((project, index) => (
-            <div className="scroll-frame" key={index}>
-              <div className="project-sticky-tile">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
+      <div className={`section-container ${showLatest ? 'active' : ''}`} ref={latestRef}>
+        <div className="section-highlight" />
+        <section className="latest-work-section">
+            
+          <div className="latest-work-heading-sticky">
+            <h2 className="section-title">Latest Work</h2>
+          </div>
+          <div className="stacked-scroll-wrapper">
+            {projects.map((project, index) => (
+              <div className="scroll-frame" key={index}>
+                <div className="project-sticky-tile">
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </div>
 
-      <section className="contact-section">
-        <h2 className="section-title">Contact Me</h2>
-        <p className="contact-info">Email: your.email@example.com</p>
-        <p className="contact-info">LinkedIn: linkedin.com/in/yourname</p>
-      </section>
+      <div className={`section-container ${showContact ? 'active' : ''}`} ref={contactRef}>
+        <div className="section-highlight" />
+        <section className="contact-section">
+            <p className="section-description">
+          <h2 className="section-title">Contact Me</h2>
+          <p className="contact-info">Email: your.email@example.com</p>
+          <p className="contact-info">LinkedIn: linkedin.com/in/yourname</p>
+            </p>
+        </section>
+      </div>
     </div>
   )
 }
