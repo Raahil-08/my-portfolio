@@ -52,9 +52,10 @@ export default function PortfolioPage() {
         <div className="section-highlight" />
         <section className="hero-section">
           <p className="hero-subtext">
-            <h1 className="hero-heading">
+            <h1 className="hero-name">Raahil Desai</h1>
+            <h4 className="hero-heading">
               Hi, I'm a College Student in Ahmedabad
-            </h1>
+            </h4>
             I create engaging digital experiences through clean code and bold
             design. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Neque, nemo recusandae cum eum atque harum ex enim aliquam culpa
