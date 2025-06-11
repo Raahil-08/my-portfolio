@@ -29,6 +29,8 @@ function useOnScreen(ref) {
   return visible;
 }
 
+
+
 export default function PortfolioPage() {
   const heroRef = useRef(null);
   const contribRef = useRef(null);
