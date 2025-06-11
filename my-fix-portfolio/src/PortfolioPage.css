@@ -51,7 +51,7 @@
 .latest-work-heading-sticky {
   position: sticky;
   top: 0;
-  background-color: #151515e9;
+  background-color: black;
   z-index: 10;
   padding: 2rem 0;
   border-bottom: 1px solid #333;
@@ -72,8 +72,9 @@
   position: sticky;
   top: 13.2rem;
   width: 60%;
+  height: 30%;
   margin: 0 auto;
-  background: black;
+  background: #151515e9;
   border: 1px solid #333;
   border-radius: 1rem;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
@@ -92,6 +93,10 @@
   font-size: 1.1rem;
   color: #ccc;
   line-height: 1.5;
+}
+
+.scroll-spacer {
+  height: 100vh;
 }
 
 .section-container {
